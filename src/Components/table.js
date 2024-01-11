@@ -5,7 +5,7 @@ export const ContentTable = ({ data }) => {
 
   return (
     <>
-      <div className="">
+      <div className="mb-5">
         <h1 className="mb-3">Table view</h1>
         <Table responsive="lg" bordered hover size="lg">
           <thead>
