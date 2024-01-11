@@ -2,8 +2,6 @@ import { Table } from "react-bootstrap"
 
 export const ContentTable = ({ data }) => {
 
-  console.log(data, "tttavle")
-
 
   return (
     <>
