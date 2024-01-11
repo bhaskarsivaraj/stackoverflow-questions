@@ -1,27 +1,10 @@
 
 
 // MyChart.js
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
 import ReactApexChart from 'react-apexcharts';
 
 const MyChart = ({ data }) => {
 
-  const [questionsData, setQuestionsData] = useState([]);
-
-
-  useEffect(() => {
-
-    axios.get("http://localhost:3500/api/questions").then((response) => {
-      let { data } = response;
-      setQuestionsData(data);
-
-    }).catch((err) => {
-      console.log(err);
-    })
-
-
-  }, [])
 
 
 
@@ -30,26 +13,26 @@ const MyChart = ({ data }) => {
       type: 'line',
     },
     xaxis: {
-      categories: questionsData.map(item => item.title),
+      categories: data.map(item => item.title),
     },
   };
 
   const series = [
     {
       name: 'Views',
-      data: questionsData.map(item => item.views),
+      data: data.map(item => item.views),
     },
     {
       name: 'Answer Count',
-      data: questionsData.map(item => item.answerCount),
+      data: data.map(item => item.answerCount),
     },
   ];
 
 
 
   return (
-    <div>
-      <h1>Stack Overflow questions</h1>
+    <div className='mt-5'>
+      <h1 className="mb-3">Chart view</h1>
       <ReactApexChart options={options} series={series} type="line" height={350} />
     </div>
   );
